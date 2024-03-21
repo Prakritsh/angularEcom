@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div *ngIf="productId == null; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock><table class="table table-contain"><tr> <td>YOUR CART IS EMPTY</td></tr></table></ng-template>
+<ng-template #elseBlock>
+<div class="table-contain">
+<table class="table table-contain">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th> </th>
+            <th>Product</th>
+            <th> </th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>  Total $</th>
+            <th> </th>
+          </tr>
+        </thead>
+      
+          <tr *ngFor="let item of cartData; index as i;" id="item-list">
+            <th> {{i+1}}</th>
+            <td><img [src]="item.image" alt="..." id="cart-img"></td>
+            <td> {{item.title}}</td> 
+            <td> <button id="dlt" (click)="remove(item.id)"> <i class="material-icons">delete</i></button></td>
+            <td>{{item.price}}</td>
+            <td><button class="btn-quantity" (click)="reduce(item.id)">-&nbsp;</button>{{item.quantity}}<button class="btn-quantity" (click)="add(item.id )">&nbsp;+</button></td>
+            <td >${{item.price * item.quantity}}</td>
+          </tr>
+          <tr> 
+            <td colspan="6">Total</td>
+            <td >${{price}}</td>
+          </tr>
+      </table> 
+      <button id="buy">Checkout</button>
+    </div>
+</ng-template>
+
+
+<!-- 
+<div class=" row justify-content-start">
+    <div class="col-xl-4 col-xl-3 col-sm-6 mb-5 card-container" *ngFor="let item of cartData; index as i;" id="item-list">
+        <div class="card"> 
+         
+          <img [src]= "item.image" class="card-img-top " alt="...">
+          <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+          <p class="card-text">Model: {{item.category}} </p>
+
+        </div>
+   
+      </div>
+     </div> 
+
+    </div> -->

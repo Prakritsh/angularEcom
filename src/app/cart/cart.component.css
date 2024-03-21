@@ -1,0 +1,33 @@
+.table-contain{
+    margin: auto;
+    width: 80%;
+}
+#cart-img{
+        height: 8rem; /* Adjust this value as needed */
+        object-fit: contain;
+}
+ tr{
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+#dlt{
+    border: none;
+    margin-left: 8rem;
+}
+#buy{
+    margin: 5rem;
+   float: right; 
+   border-radius: 20rem;
+   font-size: large;
+   background:grey ;
+   border: none;
+}
+td{
+    text-align: center;
+}
+
+.btn-quantity{
+   border: none;
+   font-size: large;
+   
+}
