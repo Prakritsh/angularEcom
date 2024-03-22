@@ -1,0 +1,18 @@
+<div class="chk-body">
+<div class="container">
+    <div class="inner-div">
+    <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+    <h3> Payment Information.</h3>
+    <h6> Payment Method:</h6>
+    <span> <input type="radio" name="payment"> Credit Card</span>
+    <span> <input type="radio" name="payment"> Pay Pal</span>
+    <h6>  Name On Card:</h6> 
+    {{"NAME"}}
+    <h6>Credit Card Number: </h6> 
+    <span id="card-num"> <input type="text"maxlength="4" placeholder="XXXX"><input type="text" maxlength="4" placeholder="XXXX" ><input type="text" maxlength="4" placeholder="XXXX"><input type="password" maxlength="4" placeholder="XXXX"></span>
+    <h6> Expiration Date:</h6>
+    <input  id="date" type="date" id="dateInput" name="dateInput" [min]="minDate" required><br>
+    <button class="btn btn-primary" (click)="sucess()" routerLink="/product">PAY Now</button>
+</div>
+</div>
+</div>

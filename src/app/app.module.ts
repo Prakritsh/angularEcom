@@ -11,6 +11,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
 import { AccountComponent } from './account/account.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { RouteGaurdService } from './routingService/route-gaurd.service';
+import { AuthServiceService } from './routingService/auth-service.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { AccountComponent } from './account/account.component';
     LoginComponent,
     NavbarComponent,
     CartComponent,
-    AccountComponent
+    AccountComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import { AccountComponent } from './account/account.component';
     HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    RouteGaurdService,
+    AuthServiceService
   ],
   bootstrap: [AppComponent]
 })

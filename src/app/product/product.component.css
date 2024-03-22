@@ -5,7 +5,7 @@
     margin: auto;
     width: 80%;
     align-items: center;
- 
+
   }
 .card-img-top {
     height: 20rem; /* Adjust this value as needed */
@@ -62,11 +62,43 @@
 }
 @media all and (max-width:800px){
   #c-item{
-    font-size:medium;
+    font-size:small;
     font-family: 'Times New Roman';
     position: absolute;
     right: 1rem;
     top: 24rem;
     border-radius: 10px;
+  }
+  .card-img-top {
+    height: 10rem; /* Adjust this value as needed */
+    object-fit: contain;
+  }
+}
+
+@media all and (max-width:650px){
+  #c-item{
+    font-size:x-small;
+    font-family:Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 21rem;
+    border-radius: 10px;
+    padding: 0;
+  }
+  .card{
+    width: 100%;
+    height: auto;
+    margin-top: 2rem;
+  }
+  .card-title,.btn,.card-text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  .card-title{
+    font-size: medium;
+  }
+  .btn,.card-text{
+    font-size: x-small;
   }
 }

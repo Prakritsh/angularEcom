@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CartserviceService } from '../service/cartservice.service';
 import { ApiServiceService } from '../service/api-service.service';
 
@@ -14,6 +14,8 @@ export class CartComponent {
   price :number=0;
   quantity: number=1;
   quantityPrice :number [] = [] ;
+  displayFlex: boolean = false;
+  isDisable: boolean=false;
   
 constructor(private cartService : CartserviceService , private apiService: ApiServiceService){
   //inheriting the productID added to cart
@@ -50,6 +52,9 @@ remove(id: number){
   });
   this.productId = this.productId.filter((data:any) => data != id);
   this.cartService.getData(this.productId);
+  if(this.productId.length == 0){
+    this.isDisable = !this.isDisable;
+  }
   console.log("removed?");
 }
 //subtracting price 
@@ -109,5 +114,10 @@ check(price: number){
   if(price < 0){
     this.price = 0;
   }
+}
+
+display(){
+  this.displayFlex = !this.displayFlex;
+
 }
 }

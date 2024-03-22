@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { AccountComponent } from './account/account.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { RouteGaurdService } from './routingService/route-gaurd.service';
 
 const routes: Routes = [
   {
@@ -19,16 +21,21 @@ const routes: Routes = [
   {
     path:"product",
     title:"Home",
-    component: ProductComponent },
+    component: ProductComponent,canActivate:[RouteGaurdService], },
   {
      path:"cart",
      title:"My cart",
-     component: CartComponent
+     component: CartComponent,canActivate:[RouteGaurdService],
     },
   {
       path:"account",
       title:"Account Setting",
-      component: AccountComponent
+      component: AccountComponent,
+    },
+    {
+      path:"checkout",
+      title:"Checkout",
+      component:CheckoutComponent,canActivate:[RouteGaurdService],
     },
 ];
 

@@ -70,10 +70,6 @@ export class ProductComponent {
       }
        
 
-      // let addData = this.productData.filter((data:any)=> data.id === id); 
-      // this.cartData.push(addData);      // export this data to cart component
-      // console.warn(this.cartData)
-      // this.cartService.getData(this.cartData);
     }
 
   }

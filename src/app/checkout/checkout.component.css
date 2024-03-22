@@ -1,0 +1,51 @@
+.chk-body{
+    position: fixed; /* Fixed position to cover entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 1000; 
+}
+.container{
+    width: 30%;
+    height: 600px;
+    background-color: aliceblue;
+    position:absolute;
+    top:50%;
+    left:40%;
+    margin-left:-100px;
+    margin-top:-300px;
+}
+.inner-div{
+    margin: 2rem 0 0 4rem;
+}
+h6{
+    color: grey;
+    font-weight: 300;
+    margin-top: 3rem;
+}
+#card-num input{
+    border: solid grey 0.5px;
+    width: 4rem;
+    margin: 0.1rem;
+    border-radius: 0.2rem;
+}
+span{
+ margin-right: 0.5rem;
+}
+
+.btn{
+    margin-top: 2rem;
+    width: 90%;
+}
+.checkout-container{
+    background-color: black;
+    position: fixed;
+}
+.btn-close{
+    position: absolute;
+
+    right: 1rem;
+   
+}
