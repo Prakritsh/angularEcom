@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ApiServiceService } from '../service/api-service.service';
 import { CartserviceService } from '../service/cartservice.service';
 
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -11,16 +12,21 @@ export class ProductComponent {
   productData:any  = [];
   filterData:any = [];
   cartData : any = [];
+  displayFlex :boolean = false;
+  cartId: any = [];
+  item :number = 0;
+  
   constructor(private apiService : ApiServiceService, private cartService : CartserviceService){
     
     this.apiService.getApi().subscribe((data: any) =>{
     console.log(data);
-    // return data;
-  
     this.productData = data;
     this.filterData =data;
+      
      })
+    this.cartService.currentData.subscribe(data => this.item = data.length)
     }
+
     category(cat : string){
       cat = cat.toLocaleLowerCase();
       switch(cat){
@@ -47,30 +53,26 @@ export class ProductComponent {
          this.filterData = this.productData;
          break;
       }
-
     }
-    displayFlex :boolean = false;
-    cartId: any = [];
-    item :number = 0;
+  
 
     addTocart(id : number){
-   
-
-      let cartid = id ;
-      if(!this.cartId.includes(cartid)){
+      this.cartService.currentData.subscribe(data => {
+        if(data)
+        this.cartId = data;
+      })
+      if(!this.cartId.includes(id)){
         setTimeout(() => {
-          this.item++
+          this.item = this.cartId.length;
         }, 1000); 
-        this.cartId.push(cartid);
+        
+        this.cartId.push(id);
         this.cartService.getData(this.cartId);
         this.displayFlex = true;
         setTimeout(() => {
           this.displayFlex = false;
         }, 3000);
       }
-       
-
     }
-
   }
 

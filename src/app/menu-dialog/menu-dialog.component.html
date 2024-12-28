@@ -1,0 +1,16 @@
+<div class="main">
+    <div class="header d-flex align-items-center justify-content-between">
+      <ng-container *ngTemplateOutlet="data.contentHeader"></ng-container>
+      <button mat-dialog-close  class="btn-close me-2" aria-label="Close"></button>
+    </div>
+  
+    <mat-dialog-content>
+      <ng-container *ngTemplateOutlet="data.contentTemplate"></ng-container>
+    </mat-dialog-content>
+  
+    <mat-dialog-actions class="ms-4">
+        <button mat-button id="save"  class="px-4">Save</button>
+        <button mat-button mat-dialog-close id="close" class="px-4">Cancel</button>
+      </mat-dialog-actions>
+  </div>
+  

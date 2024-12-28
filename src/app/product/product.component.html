@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
-<h5 id="c-item" class="btn btn-warning"> Cart:{{item}}</h5>
+<button id="c-item" class="btn btn-warning" routerLink="/cart"> Cart:{{item}}</button>
 <div class="btn-group d-grid gap-2 d-md-block" id="btns" >
-  <button type="button" class="btn btn-warning"(click)="category(b1.value)" #b1 value="all">All</button>
+  <button type="button" class="btn btn-warning active"(click)="category(b1.value)" #b1 value="all">All</button>
   <button type="button" class="btn btn-light"(click)="category(b2.value)" #b2 value="Men">Men's clothing</button> 
   <button type="button" class="btn btn-light" (click)="category(b3.value)"#b3 value="Jewelery">Jewelery</button>
   <button type="button" class="btn btn-light" (click)="category(b4.value)"#b4 value="Electronics">Electronics</button>
@@ -10,7 +10,7 @@
 
   </div>
         <div class=" row justify-content-start">
-          <div class="col-xl-3  col-sm-6 col-6 mb-3 card-container" *ngFor="let item of filterData; index as i;" id="item-list">
+          <div class="col-xl-3  col-sm-6 col-12  mb-3 card-container" *ngFor="let item of filterData; index as i;" id="item-list">
               <div class="card"> 
                
                 <img [src]= "item.image" class="card-img-top " alt="..."   >

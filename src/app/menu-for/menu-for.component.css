@@ -1,0 +1,51 @@
+h4{
+    font-weight:700
+}
+label,input[type="select"], input[type='text'] {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.heading{
+    border-bottom: 1px solid gainsboro;
+}
+.star{
+    color: red;
+}
+.form-control:focus , .form-select:focus {
+    border-color: rgba(0, 123, 255, 0.25); 
+    box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25); 
+}
+.form-control, .form-select{
+    font-size: 14px;
+}
+.footer {
+    width: 100vw;
+    position:fixed;
+    bottom: 5px;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.15); 
+    box-shadow: 0 0 0 0.2rem rgba(126, 126, 126, 0.132); 
+    border-top: 1px solid #dee2e6; 
+  }
+
+#save{
+    background-color: rgba(51, 103, 153, 1);
+    color: white;
+    font-size: 14px;
+}
+#back{
+    color: rgba(51, 103, 153, 1);
+    border:1px solid rgba(51, 103, 153, 1);
+    font-size: 14px;
+}
+#back:hover , #save:hover {
+    background-color:rgba(51, 104, 153, 0.675); 
+    color: white;
+    border:none;
+}
+.dialog-button{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}

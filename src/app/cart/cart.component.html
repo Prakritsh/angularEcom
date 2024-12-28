@@ -12,8 +12,8 @@
             <th> </th>
             <th>Price</th>
             <th>Quantity</th>
-            <th>  Total $</th>
-            <th> </th>
+            <th>Total $</th>
+            <th></th>
           </tr>
         </thead>
       
@@ -24,11 +24,11 @@
             <td> <button id="dlt" (click)="remove(item.id)"> <i class="material-icons">delete</i></button></td>
             <td>{{item.price}}</td>
             <td><button class="btn-quantity" (click)="reduce(item.id)">-&nbsp;</button>{{item.quantity}}<button class="btn-quantity" (click)="add(item.id )">&nbsp;+</button></td>
-            <td >${{item.price * item.quantity}}</td>
+            <td style="width: 9rem;" >${{item.price * item.quantity | number: '1.2-2'}}</td>
           </tr>
           <tr> 
             <td colspan="6">Total</td>
-            <td >${{price}}</td>
+            <td>${{price  | number: '1.2-2'}}</td>
           </tr>
       </table> 
       <button id="buy" (click)="display()" [disabled]="isDisable">Checkout</button>

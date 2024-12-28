@@ -1,0 +1,176 @@
+<app-navbar></app-navbar>
+<div class="heading my-4">
+    <div class="container">
+    <h4 class="ms-2"> MAIN MENU</h4>
+</div>
+</div>
+
+<div class="container">
+   
+<form>
+<div class="container"> 
+    <div class="row mb-2">
+        <div class="col-12 col-md-2">
+            <label for="mainMenu" class="form-label">Main Menu: <span class="star">*</span></label>
+        </div>
+        <div class="col-12 col-md-6">
+            @if (activePath === 'main-menu') {
+                <input type="text" id="mainMenu" class="form-control px-2 py-1" formControlName="mainMenu" />
+            } @else {
+                <select id="category" class="form-select px-2 py-1 custom-input" formControlName="category" >
+                    <option>OP1</option>
+                    <option>OP2</option>
+                </select>
+            }
+        </div>
+    </div>
+
+    <!-- Sub Menu -->
+    <div class="row mb-2" *ngIf="menuForm.contains('subMenu')">
+        <div class="col-12 col-md-2">
+            <label for="subMenu" class="form-label">Sub Menu: <span class="star">*</span></label>
+        </div>
+        <div class="col-12 col-md-6">
+            <input type="text" id="subMenu" class="form-control px-2 py-1" formControlName="subMenu" />
+        </div>
+    </div>
+
+    <!-- Parent Menu -->
+    <div class="row mb-2" *ngIf="menuForm.contains('parentMenu')">
+        <div class="col-12 col-md-2">
+            <label for="parentMenu" class="form-label">Parent Menu: <span class="star">*</span></label>
+        </div>
+        <div class="col-12 col-md-6">
+            <input type="text" id="parentMenu" class="form-control px-2 py-1" formControlName="parentMenu" />
+        </div>
+    </div>
+
+    <!-- Menu Name -->
+    <div class="row mb-2" *ngIf="menuForm.contains('menuName')">
+        <div class="col-12 col-md-2">
+            <label for="menuName" class="form-label">Menu Name: <span class="star">*</span></label>
+        </div>
+        <div class="col-12 col-md-6">
+            <input type="text" id="menuName" class="form-control px-2 py-1" formControlName="menuName" />
+        </div>
+    </div>
+
+    <!-- Category -->
+    <div class="row mb-2">
+        <div class="col-12 col-md-2">
+            <label for="category" class="form-label">Category:</label>
+        </div>
+        <div class="col-12 col-md-4">
+            <select id="category" class="form-select px-2 py-1" formControlName="category">
+                <option>OP1</option>
+                <option>OP2</option>
+            </select>
+        </div>
+        <div class="col-12 col-md-1 ps-0">
+            
+            <button class="dialog-button" type="button" (click)="openDialog('Category')">
+                <img src="assets/addButton.png" alt="addicon">
+            </button>
+        </div>
+    </div>
+
+    <!-- Sub Category -->
+    <div class="row mb-2">
+        <div class="col-12 col-md-2">
+            <label for="subCategory" class="form-label">Sub Category:</label>
+        </div>
+        <div class="col-12 col-md-4">
+            <select id="subCategory" class="form-select px-2 py-1" formControlName="subCategory">
+                <option>OP1</option>
+                <option>OP2</option>
+            </select>
+        </div>
+        <div class="col-12 col-md-1 ps-0">
+            <button class="dialog-button" type="button" (click)="openDialog('Sub Category')">
+                <img src="assets/addButton.png" alt="addicon">
+            </button>
+        </div>
+    </div>
+
+    <!-- Modules -->
+    <div class="row mb-2">
+        <div class="col-12 col-md-2">
+            <label for="modules" class="form-label">Modules: <span class="star">*</span></label>
+        </div>
+        <div class="col-12 col-md-4">
+            <select id="modules" class="form-select px-2 py-1" formControlName="modules">
+                <option>OP1</option>
+                <option>OP2</option>
+            </select>
+        </div>
+        <div class="col-12 col-md-1 ps-0">
+            <button class="dialog-button" type="button" (click)="openDialog('Modules')">
+                <img src="assets/addButton.png" alt="addicon">
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Index and Shortcut Key -->
+    <div class="row mb-2">
+        <div class="col-12 col-md-2">
+            <label for="menuIndex" class="form-label">Menu Index: <span class="star">*</span></label>
+        </div>
+        <div class="col-12 col-md-4">
+            <input type="text" id="menuIndex" class="form-control px-2 py-1" formControlName="menuIndex" />
+        </div>
+        <div class="col-12 col-md-auto ps-0">
+            <label for="shortcutKey" class="form-label">Shortcut Key:</label>
+        </div>
+        <div class="col-12 col-md-1">
+            <input type="text" id="shortcutKey" class="form-control px-2 py-1" formControlName="shortcutKey" />
+        </div>
+    </div>
+
+    <!-- Menu Icon Path -->
+    <div class="row mb-2">
+        <div class="col-12 col-md-2">
+            <label for="menuIconPath" class="form-label">Menu Icon Path:</label>
+        </div>
+        <div class="col-12 col-md-6">
+            <input type="text" id="menuIconPath" class="form-control px-2 py-1" formControlName="menuIconPath" />
+        </div>
+    </div>
+</div>
+
+      
+      
+  </form>
+</div>
+
+<footer class="footer mb-1">
+    <div class="container">
+      <div class="d-flex justify-content-start">
+        <button class="btn  me-2 px-4" id="save">SAVE</button>
+        <button class="btn  px-4" id="back">BACK</button>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- dialog box --> 
+  <ng-template #dialogHeader>
+    <h2 mat-dialog-title class="text-white mb-0">{{contentHeader}}</h2>
+  </ng-template>
+  <ng-template #dialogContent>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-5 col-11 px-0 lh-2">
+          <label for="sub-category" class="form-label text-body mb-0">{{contentHeader}} Name:</label>
+        </div>
+        <div class="col-lg-7 col-md-6 col-11 px-0">
+          <input type="text" class="form-control px-2 py-1">
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  
+
+  
+
+  
+  

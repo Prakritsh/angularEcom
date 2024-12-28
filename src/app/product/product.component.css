@@ -50,6 +50,7 @@
   top: 5rem;
   border-radius: 10px;
 }
+
 @media all and (max-width:950px){
   #c-item{
     font-size:medium;

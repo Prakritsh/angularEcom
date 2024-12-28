@@ -1,0 +1,23 @@
+.main{
+    width: 40vw;
+}
+.header{
+    background-color: rgba(64, 129, 191, 1);
+}
+h2{
+    color: white;
+}
+#save{
+    background-color: rgba(64, 129, 191, 1);
+    color: white;   
+    font-size: 14px;
+    font-weight: 200;
+
+}
+#close{
+    border: 1px solid rgba(64, 129, 191, 1);
+    color: rgba(64, 129, 191, 1);
+    font-size: 14px;
+    font-weight: 200;
+}
+

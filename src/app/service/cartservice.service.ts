@@ -14,4 +14,7 @@ export class CartserviceService {
   getData(data: number){
   this.cartdata.next(data);
   }
+  clearData(){
+    this.cartdata.next(null)  ;
+  }
 }

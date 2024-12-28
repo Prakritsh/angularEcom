@@ -6,6 +6,8 @@ import { CartComponent } from './cart/cart.component';
 import { AccountComponent } from './account/account.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { RouteGaurdService } from './routingService/route-gaurd.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MenuForComponent } from './menu-for/menu-for.component';
 
 const routes: Routes = [
   {
@@ -21,7 +23,8 @@ const routes: Routes = [
   {
     path:"product",
     title:"Home",
-    component: ProductComponent,canActivate:[RouteGaurdService], },
+    component: ProductComponent,canActivate:[RouteGaurdService]
+  },
   {
      path:"cart",
      title:"My cart",
@@ -37,6 +40,19 @@ const routes: Routes = [
       title:"Checkout",
       component:CheckoutComponent,canActivate:[RouteGaurdService],
     },
+    {
+      path:'admin',
+      loadChildren:()=> import('./admin/admin.module').then(mod=>mod.AdminModule),
+    },
+    {
+      path:"menu/:subpath",
+      title:"MENU",
+      component: MenuForComponent,
+     },
+    {
+      path: '**',
+      component: PageNotFoundComponent,
+    }
 ];
 
 @NgModule({

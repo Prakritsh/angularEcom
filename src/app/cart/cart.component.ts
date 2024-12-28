@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CartserviceService } from '../service/cartservice.service';
 import { ApiServiceService } from '../service/api-service.service';
 
@@ -8,6 +8,7 @@ import { ApiServiceService } from '../service/api-service.service';
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
+
   productId: any = [];
   tempData : any = [];
   cartData: any = [] ;
@@ -30,10 +31,10 @@ constructor(private cartService : CartserviceService , private apiService: ApiSe
       
         this.cartData.push(...tempData);
         this.cartData.forEach((item: { quantity: number; }) => {
-          item.quantity = 1; // Set initial quantity (you can set any initial value here)
+          item.quantity = 1; 
         });
       
-        this.price =Math.round(this.price + this.cartData[i].price * this.cartData[i].quantity) ;
+        this.price =this.price + this.cartData[i].price * this.cartData[i].quantity;
         }
       });
       
@@ -57,19 +58,20 @@ remove(id: number){
   }
   console.log("removed?");
 }
+
 //subtracting price 
 subtract(price: number , q :number=1){
   console.log("number of quantit dlted"+q);
   this.price = this.price - price * q;
-  this.price = Math.round(this.price);
   console.log(this.price);
   this.check(this.price);
 }
+
 //adding price
 addtot(price: number){
   this.price = this.price + price;
-  this.price = Math.round(this.price);
-  console.log(this.price);
+  this.price = this.price;
+  // console.log(this.price);
   this.check(this.price);
 }
 
@@ -109,7 +111,8 @@ add(id :number, ){
   }
 })
 }
-//check price is in -ve as math round will not read decial value
+
+//check price is in -ve as math round will not read decimal value
 check(price: number){
   if(price < 0){
     this.price = 0;
@@ -118,6 +121,5 @@ check(price: number){
 
 display(){
   this.displayFlex = !this.displayFlex;
-
 }
 }
